@@ -1,9 +1,17 @@
 "use strict";
 
-const customTracker = document.querySelector(".customTracker");
+const monkey = document.querySelector(".monkey");
 
-const pos = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+document.onmousemove = (event) => {
+  var x = (event.clientX * 100) / window.innerWidth + "%";
+  var y = (event.clientY * 100) / window.innerHeight + "%";
 
-const mouse = { x: pos.x, y: pos.y };
-
-const speed = 0.35;
+  monkey.style.transition = "0s";
+  monkey.style.left = x;
+  monkey.style.top = y;
+};
+document.onmouseout = (event) => {
+  monkey.style.transition = "0.7s";
+  monkey.style.left = "50%";
+  monkey.style.top = "50%";
+};
